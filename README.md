@@ -4,7 +4,7 @@ This repository contains small experimental code snippets.
 
 ## Sensor-Agent
 
-`sensor_agent.py` liest Sensordaten aus einer CSV-Datei und gibt einfache Handlungsempfehlungen basierend auf Temperatur, Luftfeuchtigkeit und Lichtniveau aus.
+`sensor_agent.py` liest Sensordaten aus einer CSV-Datei und gibt Handlungsempfehlungen aus. Optional kann eine zweite CSV-Datei mit Optimalwerten übergeben werden.
 
 ### Beispiel
 
@@ -17,10 +17,17 @@ temperature,humidity,light
 26.0,65,900
 ```
 
-3. Führe den Agenten mit Python aus:
+3. Optional kannst du eine Datei `optimal_data.csv` anlegen, die die Idealwerte enthält:
 
 ```
-python sensor_agent.py sensor_data.csv
+temperature,humidity,light
+21.0,50,600
 ```
 
-Der Agent nimmt die letzte Zeile der Datei und gibt passende Empfehlungen aus.
+4. Führe den Agenten mit Python aus:
+
+```
+python sensor_agent.py sensor_data.csv optimal_data.csv
+```
+
+Der Agent nimmt jeweils die letzte Zeile der angegebenen CSV-Dateien und gibt passende Empfehlungen aus.
